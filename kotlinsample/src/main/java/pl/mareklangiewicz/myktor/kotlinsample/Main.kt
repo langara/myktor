@@ -1,3 +1,5 @@
 package pl.mareklangiewicz.myktor.kotlinsample
 
-fun main(args: Array<String>) = println("TODO sample")
+import startDemoServer
+
+fun main(args: Array<String>) = startDemoServer(8080)

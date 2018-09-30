@@ -11,7 +11,7 @@ application {
 
 dependencies {
     implementation(Deps.kotlinStdlib8)
+    implementation(project(":myktor"))
     testImplementation(Deps.junit)
-    testImplementation(project(":myktor"))
 }
 
