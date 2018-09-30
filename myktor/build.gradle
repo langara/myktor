@@ -13,6 +13,9 @@ kotlin { experimental { coroutines "enable" } }
 dependencies {
     implementation Deps.kotlinStdlib8
     implementation Deps.ktorServerNetty
+    implementation Deps.ktorAuth
+    implementation Deps.ktorClientCore
+    implementation Deps.ktorClientApache
     implementation "ch.qos.logback:logback-classic:1.2.1"
     testImplementation Deps.junit
 }
