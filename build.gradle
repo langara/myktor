@@ -1,41 +1,27 @@
-group 'pl.mareklangiewicz.myktor'
-version '0.1'
-
 buildscript {
-    ext.kotlin_version = '1.2.70'
-    ext.ktor_version = '0.9.5'
-
 
     repositories {
+        google()
+        jcenter()
         mavenCentral()
     }
 
     dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath Deps.kotlinGradlePlugin
     }
 }
 
-apply plugin: 'java'
-apply plugin: 'kotlin'
-apply plugin: 'application'
+allprojects {
 
-sourceCompatibility = 1.8
-
-compileKotlin { kotlinOptions.jvmTarget = "1.8" }
-compileTestKotlin { kotlinOptions.jvmTarget = "1.8" }
-
-kotlin { experimental { coroutines "enable" } }
-
-repositories {
-    mavenCentral()
-    jcenter()
-    maven { url 'http://dl.bintray.com/kotlin/ktor' }
+    repositories {
+        google()
+        jcenter()
+        maven { url "https://jitpack.io" }
+        maven { url 'http://dl.bintray.com/kotlin/ktor' }
+        mavenCentral()
+    }
 }
 
-dependencies {
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
-    compile "io.ktor:ktor-server-netty:$ktor_version"
-    compile "ch.qos.logback:logback-classic:1.2.1"
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+task clean(type: Delete) {
+    delete rootProject.buildDir
 }
-
